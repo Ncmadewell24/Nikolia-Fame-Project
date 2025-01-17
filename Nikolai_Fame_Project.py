@@ -20,7 +20,7 @@ Type "help", "copyright", "credits" or "license()" for more information.
 ...         return None
 ... 
 ... # Replace with your Unsplash API key
-... UNSPLASH_API_KEY = "rl4A1PxPFET3_cfrAJa4BVa4gE1k_jAV_RWTd7oyzeM"
+... UNSPLASH_API_KEY = "dSGirDyz3G-cCWM0ifs1-sjUSstLkY_9buYG76pwQq0"
 ... 
 ... # Fetch sample content (e.g., trending photos)
 ... sample_content = fetch_unsplash_content(UNSPLASH_API_KEY, count=5, query="trending")
