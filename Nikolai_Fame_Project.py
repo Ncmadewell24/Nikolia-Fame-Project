@@ -27,3 +27,66 @@ Type "help", "copyright", "credits" or "license()" for more information.
 ... 
 ... # Display sample content for verification
 ... print(sample_content)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikolai's Fame Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 1rem;
+        }
+        section {
+            margin: 2rem;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Nikolai's Daily Fame</h1>
+    </header>
+    <section>
+        <h2>Today's Inspiration</h2>
+        <div id="daily-photo">
+            <p>Loading daily photo...</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Nikolai Fame Project</p>
+    </footer>
+    <script>
+        const accessKey = "rl4A1PxPFET3_cfrAJa4BVa4gE1k_jAV_RWTd7oyzeM"; // Your Unsplash API Key
+        const apiUrl = `https://api.unsplash.com/photos/random?client_id=${accessKey}&count=1`;
+
+        async function fetchDailyPhoto() {
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+                const photo = data[0]; // Get the first photo
+                document.getElementById("daily-photo").innerHTML = `
+                    <img src="${photo.urls.regular}" alt="${photo.alt_description}">
+                    <p>${photo.alt_description || "Daily inspiration from Unsplash"}</p>
+                `;
+            } catch (error) {
+                document.getElementById("daily-photo").innerHTML = `<p>Failed to load photo.</p>`;
+            }
+        }
+
+        fetchDailyPhoto();
+    </script>
+</body>
+</html>
